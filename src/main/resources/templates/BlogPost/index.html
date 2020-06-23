@@ -14,37 +14,36 @@
     <div class="container">
       <div class="row">
         <h1>Welcome to the blog</h1>
-        <h3>Use form to submit post</h3>
+      </div>
+      <!-- End of first row -->
+      <div class="row">
         <div th:each="blog:${posts}">
           <div class="col-sm">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title" th:text="${blog.title}"></h5>
                 <p th:text="${blog.author}"></p>
-                <p th:text="$blog.blogEntry"></p>
+                <p th:text="${blog.blogEntry}"></p>
               </div>
               <div class="card-footer">
                 <!-- TODO -->
               </div>
             </div>
+            <!-- End of card -->
           </div>
+          <!-- End of col-sm -->
         </div>
+        <!-- End of posts loop -->
       </div>
+      <!-- End of second row -->
       <div class="row">
-        <form action="#" th:action="@{/}" th:object="${blogPost}" method="POST">
-          <label for="blogTitle">Title:</label>
-          <input type="text" name="blogTitle" th:field="*{title}" />
-          <br />
-          <label for="blogAuthor">Author:</label>
-          <input type="text" name="blogAuthor" th:field="*{author}" />
-          <br />
-          <label for="blogEntry">Blog Entry:</label>
-          <input type="text" name="blogEntry" th:field="*{blogEntry}" />
-          <br />
-          <button type="submit">Submit</button>
-        </form>
+        <a href="/blogposts/new">
+          <button class="btn btn-primary">Submit A New Blog Post</button>
+        </a>
       </div>
+      <!-- End of third row -->
     </div>
+    <!-- End of container-->
 
     <script src="webjars/jquery/3.5.1/jquery.min.js"></script>
     <script src="webjars/popper.js/2.0.2/umd/popper.min.js"></script>
