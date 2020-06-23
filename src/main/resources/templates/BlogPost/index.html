@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http:/thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lisa's Blog</title>
+  </head>
+  <body>
+    <h1>Welcome to the blog</h1>
+    <h3>Use form to submit post</h3>
+    <form action="#" th:action="@{/}" th:object="${blogPost}" method="POST">
+      <label for="blogTitle">Title:</label>
+      <input type="text" name="blogTitle" th:field="*{title}" />
+      <br />
+      <label for="blogAuthor">Author:</label>
+      <input type="text" name="blogAuthor" th:field="*{author}" />
+      <br />
+      <label for="blogEntry">Blog Entry:</label>
+      <input type="text" name="blogEntry" th:field="*{blogEntry}" />
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
