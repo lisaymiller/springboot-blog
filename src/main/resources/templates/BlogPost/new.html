@@ -3,11 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="../../webjars/bootstrap/4.5.0/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="../../css/main.css" />
+    <div th:replace="/fragments/styling :: head-style"></div>
 
     <title>Lisa's Blog</title>
   </head>
@@ -30,15 +26,13 @@
           <label for="blogEntry">Blog Entry:</label>
           <input type="text" name="blogEntry" th:field="*{blogEntry}" />
           <br />
-          <button class="btn btn-primary" type="submit">Submit</button>
+          <button class="btn btn-success" type="submit">Submit</button>
         </form>
       </div>
       <!-- End of row -->
     </div>
     <!-- End of container -->
 
-    <script src="../../webjars/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../../webjars/popper.js/2.0.2/umd/popper.min.js"></script>
-    <script src="../../webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <div th:replace="/fragments/styling :: body-links"></div>
   </body>
 </html>
