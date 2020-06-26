@@ -63,7 +63,7 @@ public class BlogPostController {
         return "blogpost/edit";
     }
 
-    @RequestMapping(value = "/blogposts/update/{id}")
+    @RequestMapping(value = "/blogposts/update/{id}", method = RequestMethod.POST)
     public String updateExistingPost(@PathVariable Long id, BlogPost blogPost, Model model) {
         Optional<BlogPost> post = blogPostRepository.findById(id);
         if (post.isPresent()) {

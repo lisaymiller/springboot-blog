@@ -11,7 +11,7 @@ public class BlogPost {
     @Id
 
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
+    private Long id;
 
     private String title, author, blogEntry;
 
@@ -25,7 +25,7 @@ public class BlogPost {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public String getTitle() {
@@ -54,7 +54,7 @@ public class BlogPost {
 
     @Override
     public String toString() {
-        return "BlogPost [Id=" + Id + ", author=" + author + ", blogEntry=" + blogEntry + ", title=" + title + "]";
+        return "BlogPost [Id=" + id + ", author=" + author + ", blogEntry=" + blogEntry + ", title=" + title + "]";
     }
 
 }
