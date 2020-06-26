@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http:/thymeleaf.org">
+<html lang="en" xmlns:th="http:/thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,14 +11,11 @@
     <div th:replace="/fragments/styling :: navbar"></div>
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-xl justify-content-center">
-          <h3>Your entry was successfully submitted!</h3>
+        <h3>Your entry was successfully submitted!</h3>
 
-          <p>Title:<span th:text="${title}"></span></p>
-          <p>Author: <span th:text="${author}"></span></p>
-          <p>Blog Entry: <span th:text="${blogEntry}"></span></p>
-        </div>
-        <!-- End of col-xl -->
+        <p>Title:<span th:text="${title}"></span></p>
+        <p>Author: <span th:text="${author}"></span></p>
+        <p>Blog Entry: <span th:text="${blogEntry}"></span></p>
       </div>
       <!-- End of first row -->
       <div class="row justify-content-center">

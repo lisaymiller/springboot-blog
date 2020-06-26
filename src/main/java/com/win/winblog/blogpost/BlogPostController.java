@@ -57,7 +57,7 @@ public class BlogPostController {
         Optional<BlogPost> post = blogPostRepository.findById(id);
         if (post.isPresent()) {
             BlogPost actualPost = post.get();
-            model.addAttribute("blogpost", actualPost);
+            model.addAttribute("blogPost", actualPost);
         }
 
         return "blogpost/edit";
