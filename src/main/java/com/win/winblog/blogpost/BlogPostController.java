@@ -2,12 +2,16 @@ package com.win.winblog.blogpost;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class BlogPostController {
@@ -47,4 +51,32 @@ public class BlogPostController {
 
         return "blogpost/result";
     }
+
+    @RequestMapping(value = "/blogposts/{id}", method = RequestMethod.GET)
+    public String editPostWithId(@PathVariable Long id, BlogPost blogPost, Model model) {
+        Optional<BlogPost> post = blogPostRepository.findById(id);
+        if (post.isPresent()) {
+            BlogPost actualPost = post.get();
+            model.addAttribute("blogpost", actualPost);
+        }
+
+        return "blogpost/edit";
+    }
+
+    @RequestMapping(value = "/blogposts/update/{id}")
+    public String updateExistingPost(@PathVariable Long id, BlogPost blogPost, Model model) {
+        Optional<BlogPost> post = blogPostRepository.findById(id);
+        if (post.isPresent()) {
+            BlogPost actualPost = post.get();
+            actualPost.setTitle(blogPost.getTitle());
+            actualPost.setAuthor(blogPost.getAuthor());
+            actualPost.setBlogEntry(blogPost.getBlogEntry());
+
+            blogPostRepository.save(actualPost);
+            model.addAttribute("blogPost", actualPost);
+        }
+
+        return "blogpost/result";
+    }
+
 }

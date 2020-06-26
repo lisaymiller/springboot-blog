@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http:/thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <div th:replace="/fragments/styling :: head-style"></div>
+
+    <title>Lisa's Blog</title>
+  </head>
+  <body id="body">
+    <div th:replace="/fragments/styling :: navbar"></div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <h3>Use form below to edit your blog post</h3>
+      </div>
+      <!-- End of first row -->
+      <div class="row justify-content-center">
+        <form
+          action="#"
+          th:action="@{~/blogposts/update/{id}(id=${blogPost.id})}"
+          th:object="${blogPost}"
+          method="POST"
+        >
+          <label for="blogTitle"><b>Title:</b></label>
+          <input type="text" name="blogTitle" th:field="*{title}" />
+          <br />
+          <label for="blogAuthor"><b>Author:</b></label>
+          <input type="text" name="blogAuthor" th:field="*{author}" />
+          <br />
+          <label for="blogEntry"><b>Blog Entry:</b></label>
+          <input type="text" name="blogEntry" th:field="*{blogEntry}" />
+          <br />
+          <button class="btn btn-success" type="submit">Submit</button>
+        </form>
+      </div>
+      <!-- End of second row -->
+    </div>
+    <!-- End of container -->
+
+    <div th:replace="/fragments/styling :: body-links"></div>
+  </body>
+</html>
