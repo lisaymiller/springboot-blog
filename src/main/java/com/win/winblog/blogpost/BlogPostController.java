@@ -28,6 +28,11 @@ public class BlogPostController {
         return "blogpost/new";
     }
 
+    @GetMapping(value = "/blogposts/about")
+    public String about(BlogPost blogPost) {
+        return "blogpost/about";
+    }
+
     @PostMapping(value = "/blogposts")
     public String addNewBlogPost(BlogPost blogPost, Model model) {
         blogPostRepository.save(new BlogPost(blogPost.getTitle(), blogPost.getAuthor(), blogPost.getBlogEntry()));

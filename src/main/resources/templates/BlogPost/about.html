@@ -11,27 +11,14 @@
     <div th:replace="/fragments/styling :: navbar"></div>
     <div class="container">
       <div class="row justify-content-center">
-        <h1>Welcome to the blog</h1>
+        <h1>About Lisa</h1>
       </div>
       <!-- End of first row -->
       <div class="row justify-content-center">
-        <div th:each="blog:${posts}">
-          <div class="col-sm">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title" th:text="${blog.title}"></h5>
-                <p th:text="${blog.author}"></p>
-                <p th:text="${blog.blogEntry}"></p>
-              </div>
-              <div class="card-footer">
-                <!-- TODO -->
-              </div>
-            </div>
-            <!-- End of card -->
-          </div>
-          <!-- End of col-sm -->
-        </div>
-        <!-- End of posts loop -->
+        <p>
+          Lisa is a junior developer that cares about your feelings, so feel
+          free to post them here in her blog!
+        </p>
       </div>
       <!-- End of second row -->
       <div class="row justify-content-center">
